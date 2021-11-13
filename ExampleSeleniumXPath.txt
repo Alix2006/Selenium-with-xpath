@@ -1,0 +1,25 @@
+package com.javacodegeeks;
+ 
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+ 
+import java.net.URL;
+ 
+/**
+* Example to show how to use XPath in Selenium test.
+* @author JavaCodeGekks.com
+*/
+public class ExampleSeleniumXPath {
+ 
+  public static void main(String args[]) throws Exception {
+    WebDriver driver = new RemoteWebDriver(new URL("http://localhost:9515"), DesiredCapabilities.chrome());
+    driver.get("http://www.javacodegeeks.com");
+    WebElement element = driver.findElement(By.xpath("/html/body[@class='home blog gecko']/div[@id='wrapper']/div[@id='bottom']/div[1]/a[@class='ext-link']"));
+    System.out.println(element.getText());
+    System.out.println("Page title is: " + driver.getTitle());
+    driver.quit();
+  }
+}
